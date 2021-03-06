@@ -5,7 +5,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  withRouter,
 } from "react-router-dom";
 import NotFoundPage from "./components/NotFoundPage";
 import AddUser from "./components/AddUser";

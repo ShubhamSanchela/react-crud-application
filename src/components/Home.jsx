@@ -3,6 +3,10 @@ import axios from "axios";
 
 import { Link } from "react-router-dom";
 
+{
+  /* <h1>Run Command : "npm run start:dev"</h1> */
+}
+
 const Home = () => {
   const [users, setUser] = useState([]);
 
@@ -25,12 +29,10 @@ const Home = () => {
 
   return (
     <div className="container">
-      <Link to="/users/add">
-        <button className="btn btn-primary">Add</button>
-      </Link>
-
       <div className="py-4">
-        <h1>Home Page</h1>
+        <Link to="/users/add" aria-current="page">
+          <button className="btn btn-primary">Add User</button>
+        </Link>
         <table className="table table-light table-hover">
           <thead className="thead-dark">
             <tr>
@@ -43,22 +45,25 @@ const Home = () => {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <tr>
+              <tr key={user.id}>
                 <th scope="row">{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>
                   <Link to={`/users/${user.id}`}>
-                    <i class="fas fa-eye"></i>
+                    <i className="fas fa-eye"></i>
                   </Link>
 
                   <Link to={`/users/edit/${user.id}`}>
-                    <i class="fas fa-edit"></i>
+                    <i className="fas fa-edit"></i>
                   </Link>
-                  <Link onClick={() => deleteUser(user.id)}>
-                    <i class="far fa-trash-alt"></i>
-                  </Link>
+                  <a onClick={() => deleteUser(user.id)}>
+                    <i
+                      className="far fa-trash-alt"
+                      style={{ cursor: "pointer" }}
+                    ></i>
+                  </a>
                 </td>
               </tr>
             ))}

@@ -24,9 +24,7 @@ function ViewUser() {
 
   return <div>
       <div className="container py-4">
-      <Link className="btn btn-primary" to="/">
-        back to Home
-      </Link>
+    
       <h1 className="display-4">User Id: {id}</h1>
       <hr />
       <ul className="list-group w-50">
@@ -36,6 +34,9 @@ function ViewUser() {
         <li className="list-group-item">phone: {user.phone}</li>
         <li className="list-group-item">website: {user.website}</li>
       </ul>
+      <Link className="btn btn-primary mt-4 ml-0" to="/">
+        back to Home
+      </Link>
     </div>
   </div>;
 }

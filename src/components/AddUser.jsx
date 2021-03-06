@@ -19,7 +19,7 @@ function AddUser() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:1001/users");
+    await axios.post("http://localhost:1001/users", user);
     history.push("/");
   };
   return (
@@ -49,7 +49,7 @@ function AddUser() {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="email"
               className="form-control form-control-lg"
               placeholder="Enter Your E-mail Address"
               name="email"
@@ -59,7 +59,7 @@ function AddUser() {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="number"
               className="form-control form-control-lg"
               placeholder="Enter Your Phone Number"
               name="phone"
